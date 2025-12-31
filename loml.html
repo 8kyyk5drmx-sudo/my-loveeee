@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For You 💕</title>
+
+  <!-- Cute font -->
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(120deg, #ffe6f0, #ffd6e8);
+      color: #444;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Password screen */
+    .lock-screen {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lock-box {
+      background: white;
+      padding: 30px;
+      border-radius: 18px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+      max-width: 300px;
+      width: 100%;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #ff6fae;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff4f9a;
+    }
+
+    .error {
+      color: #ff4f4f;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    /* Main content */
+    .container {
+      max-width: 720px;
+      margin: 60px auto;
+      background: white;
+      padding: 35px;
+      border-radius: 20px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.12);
+      display: none;
+      position: relative;
+      z-index: 2;
+    }
+
+    h1 {
+      color: #ff6fae;
+      font-size: 36px;
+    }
+
+    h2 {
+      color: #ff8fbf;
+    }
+
+    .section {
+      margin: 35px 0;
+    }
+
+    .footer {
+      margin-top: 40px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: fixed;
+      bottom: -20px;
+      font-size: 20px;
+      animation: floatUp linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes floatUp {
+      from {
+        transform: translateY(0);
+        opacity: 0.8;
+      }
+      to {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PASSWORD SCREEN -->
+  <div class="lock-screen" id="lockScreen">
+    <div class="lock-box">
+      <h2>😾 WHAT ARE YOU DOING HERE DODO ???</h2>
+      <p>Enter the special password</p>
+      <input type="password" id="passwordInput" placeholder="Password">
+      <br>
+      <button onclick="checkPassword()">Are You Sure? 💖</button>
+      <div class="error" id="error"></div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container" id="content">
+    <h1>Hello My Beautiful Baby💖</h1>
+
+    <div class="section">
+      <h2>💌 A Message for You</h2>
+      <p>
+        <!-- ✏️ EDIT HERE -->
+        I Love You So Much Baby❤️  
+        i love you from all my heart and soul and i want you.
+        i want you forever baby. i want you now, tomorrow and forever my love❤️
+        i adore every single detail about you baby ❤️
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>🌸 Things I Love About You</h2>
+      <p>
+        <!-- ✏️ EDIT HERE -->
+        • I love the way you are being yourself<br>
+        • I love your laugh<br>
+        • I love your sweet, kind and white heart<br>
+        • I love how you make everything better ❤️
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>❤️ One Last Thing</h2>
+      <p>
+        <!-- ✏️ EDIT HERE -->
+        At the end i just want to say that you are the best thing that ever happened to me and the best thing is that im stepping in the new year while you are with me. you are my everything and you are the best girlfriend ever my baby. i wish you a happy new year,A year full of happiness,love,trust and comfort❤️<br>
+Thank you for being the best girlfriend ever and thank you for accepting me for who i am baby❤️
+      </p>
+    </div>
+
+    <div class="footer">
+      Happy new year dodo 💕
+    </div>
+  </div>
+
+  <script>
+    const correctPassword = "i love you ya bg7a";
+
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      if (input === correctPassword) {
+        document.getElementById("lockScreen").style.display = "none";
+        document.getElementById("content").style.display = "block";
+        startHearts();
+      } else {
+        document.getElementById("error").textContent = "Wrong password 💔";
+      }
+    }
+
+    function startHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💗";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (5 + Math.random() * 5) + "s";
+        heart.style.fontSize = (16 + Math.random() * 20) + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 10000);
+      }, 400);
+    }
+  </script>
+
+</body>
+</html>
